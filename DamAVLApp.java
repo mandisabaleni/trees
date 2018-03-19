@@ -21,6 +21,14 @@ public class DamAVLApp{
             Scanner input = new Scanner(text);
             String[] d;
             input.nextLine();
+          
+            for(int i=0; i< 211; i++){
+                String sentence = input.nextLine();
+                d= sentence.split(",", 45);
+
+                tree.insert(d[2].trim(), " " + d[10] + " " + d[42]);
+            }
+
 
         }
         catch(Exception e){
