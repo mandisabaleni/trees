@@ -1,0 +1,39 @@
+import java.util.*;
+import java.io.*;
+
+public class Experiment {
+    static BinarySearchTree<String> mums = new BinarySearchTree<String>();
+    public static void main(String[] args){
+
+        PrintWriter w = null;
+
+        try{
+            File text = new File("damdoc.txt");
+            Scanner input = new Scanner(text);
+            w = new PrintWriter(new FileOutputStream("BSTsearches.txt"));
+            String[] d;
+            input.nextLine();
+
+            for(int i=0; i< 211; i++){
+                String sentence = input.nextLine();
+                d= sentence.split(",", 45);
+
+                mums.insert(d[2].trim(), " " + d[10] + " " + d[42]);
+            }
+
+            for(int i=0; i< 211; i++){
+                String sentence = input.nextLine();
+                d= sentence.split(",", 45);
+                mums.find(d[2].trim());
+                mums.getCount();
+                w.println(tree.getCount());
+                w.close();
+            }
+
+
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+}
