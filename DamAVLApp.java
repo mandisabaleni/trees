@@ -15,10 +15,11 @@ public class DamAVLApp{
      */
 
     public static void main (String[] args){
-
+        PrintWriter fw=null;
         try{
             File text = new File("damdoc.txt");
             Scanner input = new Scanner(text);
+            fw = new PrintWriter ("opCountDamAVL.txt");
             String[] d;
             input.nextLine();
           
@@ -34,7 +35,43 @@ public class DamAVLApp{
         catch(Exception e){
             System.out.println(e.getMessage());
         }
-    }
-        
+         if (args.length == 0){
+             printAllDams();
+         }
+         else{
+             for(String s: args){
+                 printDam(s);
+             }
+        /// fw.println( "comparisons for searched dam: " + tree.getCount());
+         fw.close();   
+///         System.out.println("No. of comparisons: " + tree.getCount());
+         }
+
+
+     }
+ /**Searches user input dam and prints it.
+  * @param damName The user input dam.
+  */    
+ public static void printDam(String damName){
+     if (tree.find(damName) != null){
+         System.out.println(tree.find(damName));
+     }
+     
+     else {
+         System.out.println("Dam not found");
+     }
+ }
+ /**Prints all dams.
+ */ 
+ public static void printAllDams(){
+     tree.treeOrder();
+ }
+
 }
+
+    
+    
+    
+        
+
 
