@@ -24,10 +24,10 @@ search:
 	java -cp bin DamBSTApp "Ngotwane Dam"
 	java -cp bin DamBSTApp "Mokolo Dam"
 	java -cp bin DamBSTApp "Unknown Dam"
-	java -cp bin DamArrayApp "Pella Dam"
-	java -cp bin DamArrayApp "Ngotwane Dam"
-	java -cp bin DamArrayApp "Mokolo Dam"
-	java -cp bin DamArrayApp "Unknown Dam"
+	java -cp bin DamAVLApp "Pella Dam"
+	java -cp bin DamAVLApp "Ngotwane Dam"
+	java -cp bin DamAVLApp "Mokolo Dam"
+	java -cp bin DamAVLApp "Unknown Dam"
 
 
 compile: $(CLASSES)
