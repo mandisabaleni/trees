@@ -2,7 +2,8 @@
 //  March 2017
 
 public class BinarySearchTree<dataType extends Comparable<? super dataType>> extends BinaryTree<dataType>
-{  int opCount=0;
+{  int insertCount=0;
+   int searchCount=0;
 
    public void insert ( dataType d, dataType d2 )
    {
@@ -12,9 +13,9 @@ public class BinarySearchTree<dataType extends Comparable<? super dataType>> ext
          insert (d, d2, root);
    }
    public void insert ( dataType d, dataType d2, BinaryTreeNode<dataType> node )
-   {
+   {  insertCount++;
       if (d.compareTo (node.data) <= 0)
-      {
+      {	// insertCount++;	
          if (node.left == null)
             node.left = new BinaryTreeNode<dataType> (d, d2, null, null);
          else
@@ -30,30 +31,30 @@ public class BinarySearchTree<dataType extends Comparable<? super dataType>> ext
    }
    
    public BinaryTreeNode<dataType> find ( dataType d )
-   {  opCount++;
+   {  //opCount++;
       if (root == null)
          return null;
       else
          return find (d, root);
    }
    public BinaryTreeNode<dataType> find ( dataType d, BinaryTreeNode<dataType> node )
-   {  opCount++;
+   {  searchCount++;
       if (d.compareTo (node.data) == 0) 
          {return node;}
-      
-      else if (d.compareTo (node.data) < 0)
-      {   opCount++;
+      searchCount++;
+      if (d.compareTo (node.data) < 0)
+      {   searchCount++;
          return (node.left == null) ? null : find (d, node.left);
       }      
 	else
-         {   opCount++;
+         {   searchCount++;
              return (node.right == null) ? null : find (d, node.right);
 	 }
    }
   
-  public int getCount ()
+  public int insertCount ()
   {
-	return opCount;
+	return insertCount;
   }
    
    

@@ -43,9 +43,9 @@ public class DamBSTApp{
             for(String s: args){
                 printDam(s);
             }
-            fw.println( "comparisons for searched dam: " + tree.getCount());
+            fw.println( "comparisons for inserted dam: " + tree.insertCount());
             fw.close();   
-//            System.out.println("No. of comparisons: " + tree.getCount());
+//            System.out.println("No. of insert comparisons: " + tree.insertCount());
         }
 
               

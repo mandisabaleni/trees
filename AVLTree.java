@@ -83,7 +83,7 @@ public class AVLTree<dataType extends Comparable<? super dataType>> extends Bina
 
 
    public BinaryTreeNode<dataType> find ( dataType d )
-   {
+   {  searchCount++;
       if (root == null)
          return null;
       else
@@ -94,7 +94,8 @@ public class AVLTree<dataType extends Comparable<? super dataType>> extends Bina
       searchCount++;//
       if (d.compareTo (node.data) == 0) 
          return node;
-      else if (d.compareTo (node.data) < 0)
+      searchCount++; 
+      if (d.compareTo (node.data) < 0)
 	 //searchCount++;
          return (node.left == null) ? null : find (d, node.left);
       else
